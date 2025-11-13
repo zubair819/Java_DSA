@@ -1,0 +1,26 @@
+package com.dsa.in;
+
+import java.util.Scanner;
+
+public class Finding_missing_no {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("enter the size of an array");
+		int n=sc.nextInt();
+		int a[] = new int [n];
+		int missing_value = 0;
+		for(int i=1;i<n;i++) {
+			System.out.println("enter the element starting from 1 "+i);
+			a[i]=sc.nextInt();
+		}
+		for (int i=1;i<n;i++) {
+			if (a[i]!=i) {
+				missing_value=i;
+				break;
+			}
+		}
+		System.out.println("The missing value is "+missing_value);
+	}
+}

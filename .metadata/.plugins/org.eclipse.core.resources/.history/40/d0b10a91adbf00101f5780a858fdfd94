@@ -1,0 +1,51 @@
+package com.dsa.in;
+
+import java.util.Scanner;
+
+public class Finding_missing_no {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("enter the size of an array");
+		int n=sc.nextInt();
+		int a[] = new int [n+1];
+		int missing_value = 0;
+		
+		for(int i=1;i<=n;i++) {
+			System.out.println("enter the element for "+i);
+			a[i]=sc.nextInt();
+		}
+		
+		System.out.println("Elements before sorting");
+		for(int i=1;i<=n;i++) {
+			System.out.println(a[i]);
+		}
+		
+		//sorting array using selection sort 
+		for(int i=1;i<n;i++) {
+			int min_index=a[i];
+			for (int j=i+1;j<n-1;j++) {
+				if (a[j]<a[i]) {
+					min_index=j;
+				}
+			}
+			a[i]=a[min_index];
+			a[min_index]=a[i];
+		}
+		
+		System.out.println("Elements After sorting");
+		for(int i=1;i<=n;i++) {
+			System.out.println(a[i]);
+		}
+		
+		//Findidng the missing value from an array
+		for (int i=1;i<=n;i++) {
+			if (a[i]!=i) {
+				missing_value=i;
+				break;
+			}
+		}
+		System.out.println("The missing value is "+missing_value);
+	}
+}
